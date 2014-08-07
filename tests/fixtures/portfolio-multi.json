@@ -1,0 +1,149 @@
+{
+   "portfolio" : {
+      "isAdded" : true,
+      "lastUpdated" : 30,
+      "name" : "portfolio",
+      "value" : [
+         {
+            "isAdded" : true,
+            "name" : "conttype",
+            "value" : [
+               {
+                  "isAdded" : true,
+                  "value" : [
+                     {
+                        "isAdded" : true,
+                        "value" : "4998723",
+                        "name" : "id"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : "ABERDEEN GL-INDIA EQTY-X-2A",
+                        "name" : "product"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : 0.821,
+                        "name" : "size"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : 12.083,
+                        "name" : "price"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : 0.0019071310116086,
+                        "name" : "change"
+                     },
+                     {
+                        "isAdded" : true,
+                        "name" : "accruedInterest"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : 7.3091613624,
+                        "name" : "totVal"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : -0.0796481898399977,
+                        "name" : "pl"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : 4.89684200006835e-05,
+                        "name" : "plTd"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : "18/06 | 06:00:40",
+                        "name" : "lastUpdate"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : "USD",
+                        "name" : "currency"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : "KFS",
+                        "name" : "exchangeBriefCode"
+                     }
+                  ],
+                  "name" : "positionrow",
+                  "id" : 4998723
+               },
+               {
+                  "isAdded" : true,
+                  "value" : [
+                     {
+                        "isAdded" : true,
+                        "value" : "4999807",
+                        "name" : "id"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : "COMGEST GROWTH INDIA-I ACC",
+                        "name" : "product"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : 0.4,
+                        "name" : "size"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : 24.61,
+                        "name" : "price"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : -0.0210819411296739,
+                        "name" : "change"
+                     },
+                     {
+                        "isAdded" : true,
+                        "name" : "accruedInterest"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : 9.844,
+                        "name" : "totVal"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : -0.167999999999999,
+                        "name" : "pl"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : -0.212,
+                        "name" : "plTd"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : "18/06 | 06:00:40",
+                        "name" : "lastUpdate"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : "EUR",
+                        "name" : "currency"
+                     },
+                     {
+                        "isAdded" : true,
+                        "value" : "KFS",
+                        "name" : "exchangeBriefCode"
+                     }
+                  ],
+                  "name" : "positionrow",
+                  "id" : 4999807
+               }
+            ],
+            "id" : 13,
+            "title" : "contract-type.Fund"
+         }
+      ]
+   }
+}

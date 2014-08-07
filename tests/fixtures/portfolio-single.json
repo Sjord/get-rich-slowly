@@ -1,0 +1,77 @@
+{
+   "portfolio" : {
+      "isAdded" : true,
+      "lastUpdated" : 16,
+      "value" : {
+         "conttype" : [
+            {
+               "isAdded" : true,
+               "value" : [
+                  {
+                     "isAdded" : true,
+                     "value" : "4998723",
+                     "name" : "id"
+                  },
+                  {
+                     "isAdded" : true,
+                     "value" : "ABERDEEN GL-INDIA EQTY-X-2A",
+                     "name" : "product"
+                  },
+                  {
+                     "isAdded" : true,
+                     "value" : 0.821,
+                     "name" : "size"
+                  },
+                  {
+                     "isAdded" : true,
+                     "value" : 12.06,
+                     "name" : "price"
+                  },
+                  {
+                     "isAdded" : true,
+                     "value" : 0,
+                     "name" : "change"
+                  },
+                  {
+                     "isAdded" : true,
+                     "name" : "accruedInterest"
+                  },
+                  {
+                     "isAdded" : true,
+                     "value" : 7.316041014,
+                     "name" : "totVal"
+                  },
+                  {
+                     "isAdded" : true,
+                     "value" : -0.07276514527,
+                     "name" : "pl"
+                  },
+                  {
+                     "isAdded" : true,
+                     "value" : -0.07276514527,
+                     "name" : "plTd"
+                  },
+                  {
+                     "isAdded" : true,
+                     "value" : "11/06 | 06:00:55",
+                     "name" : "lastUpdate"
+                  },
+                  {
+                     "isAdded" : true,
+                     "value" : "USD",
+                     "name" : "currency"
+                  },
+                  {
+                     "isAdded" : true,
+                     "value" : "KFS",
+                     "name" : "exchangeBriefCode"
+                  }
+               ],
+               "name" : "positionrow",
+               "id" : 4998723
+            }
+         ]
+      },
+      "name" : "portfolio"
+   }
+}

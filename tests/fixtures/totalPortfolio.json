@@ -1,0 +1,39 @@
+{
+   "totalPortfolio" : {
+      "isAdded" : true,
+      "lastUpdated" : 6,
+      "value" : [
+         {
+            "isAdded" : true,
+            "value" : 0,
+            "name" : "portVal"
+         },
+         {
+            "isAdded" : true,
+            "value" : 20,
+            "name" : "cash"
+         },
+         {
+            "isAdded" : true,
+            "value" : 20,
+            "name" : "total"
+         },
+         {
+            "isAdded" : true,
+            "value" : 0,
+            "name" : "pl"
+         },
+         {
+            "isAdded" : true,
+            "value" : 0,
+            "name" : "plToday"
+         },
+         {
+            "isAdded" : true,
+            "value" : 2.645,
+            "name" : "freeSpace"
+         }
+      ],
+      "name" : "totalPortfolio"
+   }
+}
