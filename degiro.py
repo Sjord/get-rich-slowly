@@ -51,18 +51,26 @@ class Session(object):
 class DeGiroDict(object):
     def __init__(self, data):
         self.data = data
+    
+    def _wrap(self, data):
+        if isinstance(data, list) or isinstance(data, dict):
+            return DeGiroDict(data)
+        return data
+
     def __getitem__(self, key):
         if key == 0 and self.is_dict_list():
             return self
 
         try:
-            return DeGiroDict(self.data[key])
+            return self._wrap(self.data[key])
         except KeyError:
             if self.data['name'] == key:
-                return DeGiroDict(self.data['value'])
+                return self._wrap(self.data['value'])
         except TypeError:
             data = [item['value'] for item in self.data if item['name'] == key]
-            return DeGiroDict(data)
+            if len(data) == 1:
+                return self._wrap(data[0])
+            return self._wrap(data)
         
     def __repr__(self):
         return repr(self.data)
