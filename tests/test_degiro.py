@@ -24,4 +24,8 @@ class TestDeGiroDict(TestCase):
         self.assertEquals(d['portfolio']['portfolio']['conttype']['positionrow'][0]['id'], "4998723")
         self.assertEquals(d['portfolio']['portfolio']['conttype']['positionrow'][1]['id'], "4999807")
 
-
+    def test_looping_through_positionrows(self):
+        data = load_fixture('portfolio-multi.json')
+        d = DeGiroDict(data)
+        ids = [positionrow['id'] for positionrow in d['portfolio']['portfolio']['conttype']['positionrow']]
+        self.assertEquals(ids, ['4998723', '4999807'])
