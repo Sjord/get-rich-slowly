@@ -46,13 +46,11 @@ class Ema(object):
         return Advice.none
 
 
-if __name__ == "__main__":
-    isin = sys.argv[1]
+def predict_profit(fund):
     day = datetime.date.today() - datetime.timedelta(days=365)
     profit = 0
     bought = None
 
-    fund = Fund.load(isin)
     advisor = Ema(fund)
     [advisor.update(p) for p in fund.prices[0:-365]]
 
@@ -67,5 +65,11 @@ if __name__ == "__main__":
             bought = None
     if bought:
         profit += fund.prices[-1].price - bought
-    print profit
+    return profit
 
+
+if __name__ == "__main__":
+    isin = sys.argv[1]
+
+    fund = Fund.load(isin)
+    print predict_profit(fund)

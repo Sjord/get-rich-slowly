@@ -19,6 +19,7 @@ class Prices(list):
 
 
 class Price(object):
-    def __init__(self, data):
-        self.date = datetime.strptime(data['date'], '%Y-%m-%d').date()
-        self.price = data['price']
+    def __init__(self, data=None):
+        if data:
+            self.date = datetime.strptime(data['date'], '%Y-%m-%d').date()
+            self.price = data['price']
