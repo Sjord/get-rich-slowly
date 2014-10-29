@@ -47,15 +47,16 @@ class Ema(object):
 
 
 def predict_profit(fund):
-    day = datetime.date.today() - datetime.timedelta(days=365)
     profit = 0
     bought = None
 
-    advisor = Ema(fund)
-    [advisor.update(p) for p in fund.prices[0:-365]]
+    ndays = min(len(fund.prices), 365)
 
-    for i in range(0, 365):
-        p = fund.prices[i-366]
+    advisor = Ema(fund)
+    [advisor.update(p) for p in fund.prices[0:-ndays]]
+
+    for i in range(0, ndays):
+        p = fund.prices[i-ndays]
         advice = advisor.update(p)
 
         if advice == Advice.buy and not bought:
@@ -67,9 +68,17 @@ def predict_profit(fund):
         profit += fund.prices[-1].price - bought
     return profit
 
+def get_recent_advice(fund):
+    if not fund.prices:
+        return Advice.none
+    advisor = Ema(fund)
+    advice = [advisor.update(p) for p in fund.prices][-1]
+    return advice
+
+
 
 if __name__ == "__main__":
-    isin = sys.argv[1]
+    isins = sys.argv[1:]
 
-    fund = Fund.load(isin)
-    print predict_profit(fund)
+    funds = [Fund.load(isin) for isin in isins]
+    print sorted(funds, key=predict_profit)

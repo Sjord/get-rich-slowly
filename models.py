@@ -7,8 +7,12 @@ class Fund(object):
         with open('data/%s.json' % isincode) as fp:
             data = json.load(fp)
             self = cls()
+            self.isin = isincode
             self.prices = Prices(data['prices'])
             return self
+    
+    def __repr__(self):
+        return self.isin
 
 
 class Prices(list):
