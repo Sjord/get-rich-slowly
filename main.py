@@ -1,4 +1,4 @@
-from degiro import DeGiro
+from degiro import DeGiro, DeGiroError
 import production
 import json
 import schemes
@@ -25,9 +25,10 @@ def determine_funds_to_buy(funds):
     buyfunds = [f for f in mfunds if schemes.get_recent_advice(f) == schemes.Advice.buy]
     if len(buyfunds) > 1:
         buyfunds.sort(key = schemes.predict_profit)
-        return buyfunds[-2:]
-    else:
-        return buyfunds
+        buyfunds = buyfunds[-2:]
+
+    buy_isins = [f.isin for f in buyfunds]
+    return [f for f in funds if f['isin'] in buy_isins]
 
 
 session = DeGiro(production).login()
@@ -36,16 +37,19 @@ portfolio = session.get_portfolio()
 
 to_sell = determine_funds_to_sell(available_funds, portfolio)
 for fund in to_sell:
-    sell_fund(fund)
+    session.sell(fund['id'], fund['size'])
 
 money = session.get_free_space()
 if money > 2:
     to_buy = determine_funds_to_buy(available_funds)
     for fund in to_buy:
-        amount = 1 + money / 2
-        print "Buying", fund, "for", amount
-        buy_fund(fund, amount)
-        money -= amount
+        try:
+            amount = 1 + money / 2
+            print "Buying", fund['name'], fund['isin'], "for", amount
+            session.buy(fund['id'], amount)
+            money -= amount
 
-        if money <= 2:
-            break
+            if money <= 2:
+                break
+        except DeGiroError as e:
+            print e

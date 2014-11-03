@@ -23,6 +23,10 @@ def from_json(content):
     return DeGiroDict(json.loads(content))
 
 
+class DeGiroError(RuntimeError):
+    pass
+
+
 class Session(object):
     def __init__(self, rsession, settings):
         self.rsession = rsession
@@ -39,13 +43,51 @@ class Session(object):
     def get_free_space(self):
         r = self.rsession.get(self.settings.total_portfolio_url)
         total_portfolio = from_json(r.content)
-        print total_portfolio.data
         return total_portfolio['totalPortfolio']['value']['freeSpace']
 
     def get_portfolio(self):
         r = self.rsession.get(self.settings.portfolio_url)
         portfolio = from_json(r.content)
         return portfolio['portfolio']['value']['conttype'][0]['positionrow']
+
+    def buy(self, productId, amount):
+        r = self.rsession.post(self.settings.buy_url, data={
+            'product': productId,
+            'type': 1,
+            'buysell': 0,
+            'sumOrParticiaptions': 0,
+            'sum': amount,
+            'participations': ''
+        })
+
+        # Error:
+        # {"status":1,"message":"From trading system: rejected order because order violates internal account(1016257) spending limit. Order worst case execution value (including estimated fee) is 1.3 EUR and spending limit is 0 EUR","errorMessages":null}
+        # Goed:
+        # {"status":0,"message":"","errorMessages":null}
+
+        response = json.loads(r.content)
+        if response['status']:
+            raise DeGiroError(response['message'])
+
+    def sell(self, productId, participations):
+        r = self.rsession.post(self.settings.buy_url, data={
+            'product': productId,
+            'type': 2,
+            'buysell': 1,
+            'sumOrParticiaptions': 1,
+            'sum': '',
+            'participations': amount
+        })
+
+        # Error:
+        # {"status":1,"message":"From trading system: rejected order because order violates internal account(1016257) spending limit. Order worst case execution value (including estimated fee) is 1.3 EUR and spending limit is 0 EUR","errorMessages":null}
+        # Goed:
+        # {"status":0,"message":"","errorMessages":null}
+
+        response = json.loads(r.content)
+        if response['status']:
+            raise DeGiroError(response['message'])
+
 
 
 class DeGiroDict(object):
