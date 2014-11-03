@@ -49,6 +49,7 @@ class Ema(object):
 def predict_profit(fund):
     profit = 0
     bought = None
+    multiplier = None
 
     ndays = min(len(fund.prices), 365)
 
@@ -61,9 +62,11 @@ def predict_profit(fund):
 
         if advice == Advice.buy and not bought:
             bought = p.price
+            multiplier = 100 / bought
         if advice == Advice.sell and bought:
-            profit += p.price - bought
+            profit += (p.price - bought) * multiplier
             bought = None
+            multiplier = None
     if bought:
         profit += fund.prices[-1].price - bought
     return profit
