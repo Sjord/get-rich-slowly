@@ -37,6 +37,7 @@ portfolio = session.get_portfolio()
 
 to_sell = determine_funds_to_sell(available_funds, portfolio)
 for fund in to_sell:
+    print "Selling", fund['name'], fund['isin']
     session.sell(fund['id'], fund['size'])
 
 money = session.get_free_space()
