@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 class DeGiro(object):
     def __init__(self, settings):
         self.settings = settings
@@ -13,7 +14,7 @@ class DeGiro(object):
         }
         s = requests.Session()
         response = s.post(settings.login_url, data)
-        if not '/secure/v3' in response.url:
+        if '/secure/v3' not in response.url:
             raise LoginFailed
 
         return Session(s, settings)
@@ -76,7 +77,7 @@ class Session(object):
             'buysell': 1,
             'sumOrParticiaptions': 1,
             'sum': '',
-            'participations': amount
+            'participations': participations
         })
 
         # Error:
@@ -89,11 +90,10 @@ class Session(object):
             raise DeGiroError(response['message'])
 
 
-
 class DeGiroDict(object):
     def __init__(self, data):
         self.data = data
-    
+
     def _wrap(self, data):
         if isinstance(data, list) or isinstance(data, dict):
             return DeGiroDict(data)
@@ -113,7 +113,7 @@ class DeGiroDict(object):
             if len(data) == 1:
                 return self._wrap(data[0])
             return self._wrap(data)
-        
+
     def __repr__(self):
         return repr(self.data)
 
@@ -143,6 +143,7 @@ class DeGiroDict(object):
 
 class DeGiroInterfaceError(StandardError):
     pass
+
 
 class LoginFailed(DeGiroInterfaceError):
     pass

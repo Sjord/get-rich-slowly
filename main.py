@@ -1,8 +1,8 @@
 from degiro import DeGiro, DeGiroError
 import production
-import json
 import schemes
 import models
+
 
 def determine_funds_to_sell(funds, portfolio):
     to_sell = []
@@ -24,7 +24,7 @@ def determine_funds_to_buy(funds):
     mfunds = [models.Fund.load(isin) for isin in isins]
     buyfunds = [f for f in mfunds if schemes.get_recent_advice(f) == schemes.Advice.buy]
     if len(buyfunds) > 1:
-        buyfunds.sort(key = schemes.predict_profit)
+        buyfunds.sort(key=schemes.predict_profit)
         buyfunds = buyfunds[-2:]
 
     buy_isins = [f.isin for f in buyfunds]

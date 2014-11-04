@@ -1,7 +1,6 @@
 from __future__ import division
 import sys
 from models import Fund
-import datetime
 
 
 class Advice(object):
@@ -71,13 +70,13 @@ def predict_profit(fund):
         profit += fund.prices[-1].price - bought
     return profit
 
+
 def get_recent_advice(fund):
     if not fund.prices:
         return Advice.none
     advisor = Ema(fund)
     advice = [advisor.update(p) for p in fund.prices][-1]
     return advice
-
 
 
 if __name__ == "__main__":
