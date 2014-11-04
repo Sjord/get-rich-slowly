@@ -25,7 +25,7 @@ def determine_funds_to_buy(funds):
     buyfunds = [f for f in mfunds if schemes.get_recent_advice(f) == schemes.Advice.buy]
     if len(buyfunds) > 1:
         buyfunds.sort(key=schemes.predict_profit)
-        buyfunds = buyfunds[-2:]
+        buyfunds = buyfunds[-3:]
 
     buy_isins = [f.isin for f in buyfunds]
     return [f for f in funds if f['isin'] in buy_isins]
@@ -41,11 +41,12 @@ for fund in to_sell:
     session.sell(fund['id'], fund['size'])
 
 money = session.get_free_space()
-if money > 2:
+if money > 10:
+    max_amount = session.get_total_value() / 3
     to_buy = determine_funds_to_buy(available_funds)
     for fund in to_buy:
         try:
-            amount = 1 + money / 2
+            amount = min(money, max_amount) 
             print "Buying", fund['name'], fund['isin'], "for", amount
             session.buy(fund['id'], amount)
             money -= amount

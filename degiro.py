@@ -46,6 +46,11 @@ class Session(object):
         total_portfolio = from_json(r.content)
         return total_portfolio['totalPortfolio']['value']['freeSpace']
 
+    def get_total_value(self):
+        r = self.rsession.get(self.settings.total_portfolio_url)
+        total_portfolio = from_json(r.content)
+        return total_portfolio['totalPortfolio']['value']['total']
+
     def get_portfolio(self):
         r = self.rsession.get(self.settings.portfolio_url)
         portfolio = from_json(r.content)
