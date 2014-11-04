@@ -19,7 +19,9 @@ def determine_funds_to_sell(funds, portfolio):
     return to_sell
 
 
-def determine_funds_to_buy(funds):
+def determine_funds_to_buy(funds, portfolio):
+    portfolio_ids = [f['id'] for f in portfolio]
+    funds = [f for f in funds if f['id'] not in portfolio_ids]
     isins = [f['isin'] for f in funds]
     mfunds = [models.Fund.load(isin) for isin in isins]
     buyfunds = [f for f in mfunds if schemes.get_recent_advice(f) == schemes.Advice.buy]
@@ -43,7 +45,7 @@ for fund in to_sell:
 money = session.get_free_space()
 if money > 10:
     max_amount = session.get_total_value() / 3
-    to_buy = determine_funds_to_buy(available_funds)
+    to_buy = determine_funds_to_buy(available_funds, portfolio)
     for fund in to_buy:
         try:
             amount = min(money, max_amount) 
