@@ -50,7 +50,7 @@ if money >= min_amount:
     to_buy = determine_funds_to_buy(available_funds, portfolio)
     for fund in to_buy:
         try:
-            amount = money / (money / min_amount)
+            amount = money / int(money / min_amount)
             print "Buying", fund['name'], fund['isin'], "for", amount
             session.buy(fund['id'], amount)
             money -= amount
