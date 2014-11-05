@@ -4,6 +4,9 @@ import schemes
 import models
 
 
+min_amount = 100
+
+
 def determine_funds_to_sell(funds, portfolio):
     to_sell = []
     for pfund in portfolio:
@@ -43,17 +46,16 @@ for fund in to_sell:
     session.sell(fund['id'], fund['size'])
 
 money = session.get_free_space()
-if money > 10:
-    max_amount = session.get_total_value() / 3
+if money >= min_amount:
     to_buy = determine_funds_to_buy(available_funds, portfolio)
     for fund in to_buy:
         try:
-            amount = min(money, max_amount) 
+            amount = money / (money / min_amount)
             print "Buying", fund['name'], fund['isin'], "for", amount
             session.buy(fund['id'], amount)
             money -= amount
 
-            if money <= 2:
+            if money < min_amount:
                 break
         except DeGiroError as e:
             print e
