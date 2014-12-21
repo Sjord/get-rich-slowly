@@ -16,7 +16,7 @@ def determine_funds_to_sell(funds, portfolio):
 
         mfund = models.Fund.load(isin)
         advice = schemes.get_recent_advice(mfund)
-        if advice == schemes.Advice.sell:
+        if pfund['size'] and advice == schemes.Advice.sell:
             to_sell.append(pfund)
 
     return to_sell
