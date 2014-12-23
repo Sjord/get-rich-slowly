@@ -146,9 +146,5 @@ class DeGiroDict(object):
         return True
 
 
-class DeGiroInterfaceError(StandardError):
-    pass
-
-
-class LoginFailed(DeGiroInterfaceError):
+class LoginFailed(DeGiroError):
     pass
