@@ -12,6 +12,7 @@ def login():
 class Interface(object):
     def __init__(self, session):
         self.session = session
+        self.funds = None
 
     def get_portfolio(self):
         funds = self.get_funds()
@@ -24,7 +25,9 @@ class Interface(object):
         return rows
 
     def get_funds(self):
-        return set([Fund(f) for f in self.session.get_funds()])
+        if not self.funds:
+            self.funds = set([Fund(f) for f in self.session.get_funds()])
+        return self.funds
 
     def sell(self, position):
         return self.session.sell(position.fund.id, position.size)
