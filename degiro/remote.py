@@ -28,32 +28,6 @@ class DeGiroError(RuntimeError):
     pass
 
 
-class PositionRow(object):
-    def __init__(self, data):
-        self.size = data['size']
-
-
-class Fund(object):
-    def __init__(self, data):
-        self.id = data['id']
-        self.name = data['name']
-        self.isin = data['isin']
-
-
-class Interface(object):
-    def __init__(self, session):
-        self.session = session
-
-    def get_portfolio(self):
-        funds = self.session.get_funds()
-        portfolio = self.session.get_portfolio()
-        rows = []
-        for p in portfolio:
-            row = PositionRow(p)
-            (row.fund,) = [Fund(f) for f in funds if f['id'] == p['id']]
-            rows.append(row)
-        return rows
-
 
 class Session(object):
     def __init__(self, rsession, settings):
