@@ -1,5 +1,4 @@
 import degiro
-import production
 import schemes
 import models
 
@@ -33,15 +32,19 @@ def determine_funds_to_buy(funds):
 session = degiro.login()
 available_funds = session.get_funds()
 portfolio = session.get_portfolio()
+orders = session.get_orders()
 
-to_sell = determine_funds_to_sell(portfolio.active)
+sellable = [p for p in portfolio.active if p.fund not in orders.funds]
+
+to_sell = determine_funds_to_sell(sellable)
 for position in to_sell:
     print "Selling", position.fund.name
     session.sell(position)
 
 money = session.get_free_space()
 if money >= min_amount:
-    to_buy = determine_funds_to_buy(available_funds - portfolio.active.funds)
+    buyable = available_funds - portfolio.active.funds - orders.funds
+    to_buy = determine_funds_to_buy(buyable)
     for fund in to_buy:
         try:
             amount = money / int(money / min_amount)

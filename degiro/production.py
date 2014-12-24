@@ -6,3 +6,4 @@ funds_url = 'https://www.degiro.nl/secure/v3/funds?iDisplayStart=0&iDisplayLengt
 total_portfolio_url = 'https://www.degiro.nl/secure/v3/update?totalPortfolio=0'
 portfolio_url = 'https://www.degiro.nl/secure/v3/update?portfolio=0'
 buy_url = 'https://www.degiro.nl/secure/v3/fundorder/send'
+orders_url = 'https://www.degiro.nl/secure/v3/update?orders=0'

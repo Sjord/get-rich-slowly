@@ -52,6 +52,11 @@ class Session(object):
         portfolio = from_json(r.content)
         return portfolio['portfolio']['value']['conttype'][0]['positionrow']
 
+    def get_orders(self):
+        r = self.rsession.get(self.settings.orders_url)
+        orders = from_json(r.content)
+        return orders['orders']['orderTable']['order']
+
     def buy(self, productId, amount):
         r = self.rsession.post(self.settings.buy_url, data={
             'product': productId,

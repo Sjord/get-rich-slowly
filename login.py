@@ -1,8 +1,5 @@
-from degiro import DeGiro
-import production
+import degiro
 import json
 
-degiro = DeGiro(production)
 session = degiro.login()
-print json.dumps(session.get_funds())
-session.logout()
+print session.get_orders()

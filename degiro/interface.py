@@ -1,6 +1,6 @@
 import degiro.remote
 import degiro.production
-from degiro.models import PositionRow, Fund, Portfolio
+from degiro.models import PositionRow, Fund, Portfolio, Orders, Order
 
 
 def login():
@@ -38,3 +38,13 @@ class Interface(object):
     def get_free_space(self):
         return self.session.get_free_space()
 
+    def get_orders(self):
+        funds = self.get_funds()
+        orders = self.session.get_orders()
+        result = Orders()
+        for o in orders:
+            order = Order(o)
+            (order.fund,) = [f for f in funds if f.id == o['productId']]
+            result.append(order)
+        return result
+        

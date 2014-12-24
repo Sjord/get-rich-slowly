@@ -15,7 +15,7 @@ class PositionRow(object):
         self.size = data['size']
 
     def __repr__(self):
-        return "%d of %s" % (self.size, self.fund)
+        return "%f of %s" % (self.size, self.fund)
 
 
 class Fund(object):
@@ -33,3 +33,18 @@ class Fund(object):
 
     def __hash__(self):
         return hash(self.id)
+
+
+class Order(object):
+    def __init__(self, data):
+        self.buy = data['buysell'] == 'B'
+        self.sell = data['buysell'] == 'S'
+
+    def __repr__(self):
+        return "Order of %s" % (self.fund)
+
+
+class Orders(list):
+    @property
+    def funds(self):
+        return set([o.fund for o in self])
