@@ -30,8 +30,7 @@ class InterfaceTest(TestCase):
     def test_easily_get_funds_not_in_portfolio(self):
         funds = self.interface.get_funds()
         portfolio = self.interface.get_portfolio()
-        not_in_portfolio = funds - portfolio.funds
-        print funds, portfolio.funds, not_in_portfolio
+        not_in_portfolio = funds - portfolio.active.funds
         self.assertEquals(len(not_in_portfolio), 1)
         self.assertEquals(not_in_portfolio.pop().id, '5003027')
 

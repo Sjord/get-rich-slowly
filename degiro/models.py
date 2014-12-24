@@ -1,7 +1,13 @@
 class Portfolio(list):
     @property
     def funds(self):
+        """Funds in all position rows"""
         return set([pr.fund for pr in self])
+
+    @property
+    def active(self):
+        """A new portfolio with only position rows with non-zero size"""
+        return Portfolio([pr for pr in self if pr.size])
 
 
 class PositionRow(object):

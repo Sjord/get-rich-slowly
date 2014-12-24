@@ -25,3 +25,13 @@ class Interface(object):
 
     def get_funds(self):
         return set([Fund(f) for f in self.session.get_funds()])
+
+    def sell(self, position):
+        return self.session.sell(position.fund.id, position.size)
+
+    def buy(self, fund, amount):
+        return self.session.buy(fund.id, amount)
+
+    def get_free_space(self):
+        return self.session.get_free_space()
+
