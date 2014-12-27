@@ -1,10 +1,8 @@
 from webkoersen import KoersenSource
-import production
-from degiro import DeGiro
+import degiro 
 import json
 from datetime import date, datetime, timedelta
 
-degiro = DeGiro(production)
 session = degiro.login()
 funds = session.get_funds()
 session.logout()
@@ -27,7 +25,7 @@ def last_date(data):
 
 
 for fund in funds:
-    isin = fund['isin']
+    isin = fund.isin
     print isin
     fn = 'data/%s.json' % isin
 
@@ -42,7 +40,7 @@ for fund in funds:
     except KeyError:
         data['prices'] = []
 
-    data.update(fund)
+    data.update(fund.__dict__)
     start = last_date(data) or '2012-01-01'
     stop = date.today()
     newprices = source.get_prices(start, stop, isin)

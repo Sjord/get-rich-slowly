@@ -47,4 +47,7 @@ class Interface(object):
             (order.fund,) = [f for f in funds if f.id == o['productId']]
             result.append(order)
         return result
+
+    def logout(self):
+        self.session.logout()
         
