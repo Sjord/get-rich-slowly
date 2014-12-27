@@ -28,6 +28,12 @@ class TestDeGiroDict(TestCase):
     def test_looping_through_positionrows(self):
         data = load_fixture('portfolio-multi.json')
         d = DeGiroDict(data)
-        ids = [positionrow['id'] for positionrow in d['portfolio']['portfolio']['conttype']['positionrow']]
+        ids = [positionrow['id'] for positionrow in d['portfolio']['portfolio']['conttype']['positionrow'].ensure_list()]
         self.assertEquals(ids, ['4998723', '4999807'])
+
+    def test_looping_through_positionrow(self):
+        data = load_fixture('portfolio-single.json')
+        d = DeGiroDict(data)
+        ids = [positionrow['id'] for positionrow in d['portfolio']['portfolio']['conttype']['positionrow'].ensure_list()]
+        self.assertEquals(ids, ['4998723'])
 

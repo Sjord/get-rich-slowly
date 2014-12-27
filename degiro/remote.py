@@ -50,12 +50,12 @@ class Session(object):
     def get_portfolio(self):
         r = self.rsession.get(self.settings.portfolio_url)
         portfolio = from_json(r.content)
-        return portfolio['portfolio']['value']['conttype'][0]['positionrow']
+        return portfolio['portfolio']['value']['conttype'][0]['positionrow'].ensure_list()
 
     def get_orders(self):
         r = self.rsession.get(self.settings.orders_url)
         orders = from_json(r.content)
-        return orders['orders']['orderTable']['order']
+        return orders['orders']['orderTable']['order'].ensure_list()
 
     def buy(self, productId, amount):
         r = self.rsession.post(self.settings.buy_url, data={
@@ -141,10 +141,20 @@ class DeGiroDict(object):
             return False
 
         for item in self.data:
-            if 'name' not in item or 'value' not in item:
+            if 'name' not in item:
                 return False
 
         return True
+
+    def ensure_list(self):
+        if not isinstance(self.data, list):
+            raise TypeError()
+
+        if self.is_dict_list():
+            return (self,)
+        else:
+            return self
+        
 
 
 class LoginFailed(DeGiroError):
