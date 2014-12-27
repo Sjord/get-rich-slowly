@@ -51,3 +51,5 @@ class Interface(object):
     def logout(self):
         self.session.logout()
         
+    def cancel(self, order):
+        self.session.cancel(order.id)

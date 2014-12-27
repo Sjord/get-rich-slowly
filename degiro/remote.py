@@ -95,6 +95,14 @@ class Session(object):
         if response['status']:
             raise DeGiroError(response['message'])
 
+    def cancel(self, order_id):
+        url = self.settings.cancel_order_url % (order_id,)
+        r = self.rsession.get(url)
+
+        response = json.loads(r.content)
+        if response['status']:
+            raise DeGiroError(response['message'])
+
 
 class DeGiroDict(object):
     def __init__(self, data):

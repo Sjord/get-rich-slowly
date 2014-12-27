@@ -39,6 +39,7 @@ class Order(object):
     def __init__(self, data):
         self.buy = data['buysell'] == 'B'
         self.sell = data['buysell'] == 'S'
+        self.id = data['id']
 
     def __repr__(self):
         return "Order of %s" % (self.fund)

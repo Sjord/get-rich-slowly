@@ -29,6 +29,14 @@ def determine_funds_to_buy(funds):
     return [f for f in funds if f.isin in buy_isins]
 
 
+def should_cancel_order(order):
+    isin = order.fund.isin
+    mfund = models.Fund.load(isin)
+    advice = schemes.get_recent_advice(mfund)
+    return (order.buy and advice != schemes.Advice.buy) or (order.sell and advice != schemes.Advice.sell)
+
+
+
 session = degiro.login()
 available_funds = session.get_funds()
 portfolio = session.get_portfolio()
@@ -38,8 +46,12 @@ sellable = [p for p in portfolio.active if p.fund not in orders.funds]
 
 to_sell = determine_funds_to_sell(sellable)
 for position in to_sell:
-    print "Selling", position.fund.name
     session.sell(position)
+
+for order in orders:
+    if should_cancel_order(order):
+        print "Canceling order", order
+        session.cancel(order)
 
 money = session.get_free_space()
 if money >= min_amount:
