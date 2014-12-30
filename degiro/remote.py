@@ -148,6 +148,9 @@ class DeGiroDict(object):
         if not isinstance(self.data, list):
             return False
 
+        if len(self.data) == 0:
+            return False
+
         for item in self.data:
             if 'name' not in item:
                 return False
