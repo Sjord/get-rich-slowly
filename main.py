@@ -46,6 +46,7 @@ sellable = [p for p in portfolio.active if p.fund not in orders.funds]
 
 to_sell = determine_funds_to_sell(sellable)
 for position in to_sell:
+    print "Selling", position
     session.sell(position)
 
 for order in orders:
