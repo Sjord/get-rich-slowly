@@ -37,3 +37,8 @@ class TestDeGiroDict(TestCase):
         ids = [positionrow['id'] for positionrow in d['portfolio']['portfolio']['conttype']['positionrow'].ensure_list()]
         self.assertEquals(ids, ['4998723'])
 
+    def test_converting_to_dict(self):
+        data = load_fixture('totalPortfolio.json')
+        d = DeGiroDict(data)
+        native = dict(d['totalPortfolio']['totalPortfolio'])
+        self.assertEquals(native['freeSpace'], 2.645)

@@ -165,6 +165,12 @@ class DeGiroDict(object):
             return (self,)
         else:
             return self
+
+    def keys(self):
+        if not self.is_dict_list():
+            raise TypeError()
+
+        return [d['name'] for d in self.data]
         
 
 
