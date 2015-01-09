@@ -14,10 +14,12 @@ class InterfaceTest(TestCase):
             'id': '4998723',
             'isin': 'LI0837977205',
             'name': 'ABERDEEN GL-INDIA EQTY-X-2A',
+            'currency': 'USD',
         }, {
             'id': '5003027',
             'name': 'ABERDEEN GL-INDIA EQTY-Y-2A',
             'isin': 'LU0837977544',
+            'currency': 'EUR',
         }]
 
         self.interface = Interface(session)

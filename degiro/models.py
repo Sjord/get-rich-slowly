@@ -23,6 +23,7 @@ class Fund(object):
         self.id = data['id']
         self.name = data['name']
         self.isin = data['isin']
+        self.currency = data['currency']
 
     def __repr__(self):
         return self.name
@@ -39,6 +40,10 @@ class Funds(set):
     @property
     def free(self):
         return Funds([f for f in self if f.free])
+
+    @property
+    def eur(self):
+        return Funds([f for f in self if f.currency == 'EUR'])
 
 
 class Order(object):

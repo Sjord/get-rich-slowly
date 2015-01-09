@@ -56,7 +56,7 @@ for order in orders:
 
 money = session.get_free_space()
 if money >= min_amount:
-    buyable = available_funds.free - portfolio.active.funds - orders.funds
+    buyable = available_funds.eur.free - portfolio.active.funds - orders.funds
     to_buy = determine_funds_to_buy(buyable)
     for fund in to_buy:
         try:
