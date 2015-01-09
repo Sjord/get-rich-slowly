@@ -35,6 +35,12 @@ class Fund(object):
         return hash(self.id)
 
 
+class Funds(set):
+    @property
+    def free(self):
+        return Funds([f for f in self if f.free])
+
+
 class Order(object):
     def __init__(self, data):
         self.buy = data['buysell'] == 'B'

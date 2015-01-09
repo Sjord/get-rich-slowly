@@ -1,0 +1,221 @@
+DEGIRO BELEGGINGSFONDSEN KERNSELECTIE
+ISIN Uitgevende instelling Product Valuta
+LU0837965291 Aberdeen Global Aberdeen Global - Asia Pacific Equity Fund USD
+LU0837965457 Aberdeen Global Aberdeen Global - Asia Pacific Equity Fund EUR
+LU0837967826 Aberdeen Global Aberdeen Global - Asian Smaller Companies Fund USD
+LU0837968121 Aberdeen Global Aberdeen Global - Asian Smaller Companies Fund EUR
+LU0837973634 Aberdeen Global Aberdeen Global - Emerging Markets Infrastructure Equity Fund EUR
+LU0837975928 Aberdeen Global Aberdeen Global - European Equity Fund EUR
+LU0837977205 Aberdeen Global Aberdeen Global - Indian Equity Fund USD
+LU0837977544 Aberdeen Global Aberdeen Global - Indian Equity Fund EUR
+LU0837978278 Aberdeen Global Aberdeen Global - Japanese Equity Fund JPY
+LU0837979243 Aberdeen Global Aberdeen Global - Latin American Equity Fund USD
+LU0837985646 Aberdeen Global Aberdeen Global - World Equity Fund USD
+LU0837985992 Aberdeen Global Aberdeen Global - World Equity Fund EUR
+LU0837988319 Aberdeen Global Aberdeen Global II - Asia Pacific Multi Asset Fund USD
+LU0837998110 Aberdeen Global Aberdeen Global II - US Dollar High Yield Bond Fund USD
+LU0348832204 Allianz Allianz China Equity USD
+LU0972998891 Allianz Allianz Convertible Bond EUR
+LU0384033972 Allianz Allianz Discovery Europe Strategy EUR
+LU1015032755 Allianz Allianz Discovery Germany Strategy EUR
+LU0482910154 Allianz Allianz Euro High Yield Bond EUR
+LU0256881474 Allianz Allianz Europe Equity Growth EUR
+LU0293315536 Allianz Allianz Europe Small Cap Equity EUR
+LU0342692547 Allianz Allianz Global Agricultural Trends GBP
+LU0714743050 Allianz Allianz US High Yield GBP
+LU0987186219 Amundi AMUNDI ABSOLUTE VOLATILITY ARBITRAGE EUR
+LU0839530630 Amundi AMUNDI BOND EURO HIGH YIELD EUR
+LU0839534970 Amundi AMUNDI BOND GLOBAL AGGREGATE USD
+LU0823040612 Amundi AMUNDI EQUITY EMERGING INTERNAL DEMAND USD
+LU0823041693 Amundi AMUNDI EQUITY EMERGING WORLD EUR
+LU0945156379 Amundi AMUNDI EQUITY EUROLAND SMALL CAP EUR
+LU0823042402 Amundi AMUNDI EQUITY GLOBAL AGRICULTURE USD
+LU0823043632 Amundi AMUNDI EQUITY GLOBAL RESOURCES EUR
+LU0823047039 Amundi AMUNDI EQUITY LATIN AMERICA USD
+LU0987207585 Amundi AMUNDI INDEX GLOBAL BOND (EUR) HEDGED EUR
+LU0297941469 BlackRock BLACKROCK Euro Bond D2 EUR EUR
+LU0329592371 BlackRock BLACKROCK Euro Short Duration Bond D2 EUR EUR
+LU0252966485 BlackRock BLACKROCK Euro-Markets D2 EUR EUR
+LU0252966055 BlackRock BLACKROCK European D2 EUR EUR
+LU0368266812 BlackRock BLACKROCK European Focus D2RF EUR EUR
+LU1005243503 BlackRock BLACKROCK Fixed Income Global Opp D2 EUR EUR
+LU0523293024 BlackRock BLACKROCK Global Allocation D2 EUR EUR
+LU0252964944 BlackRock BLACKROCK New Energy D2 EUR EUR
+LU0532707519 BlackRock BLACKROCK USD High Yield Bond Hedged D2 EUR EUR
+LU0252963896 BlackRock BLACKROCK World Energy D2 EUR EUR
+LU0827889055 BlackRock BLACKROCK World Financials D2 EUR EUR
+LU0252963623 BlackRock BLACKROCK World Gold D2 EUR EUR
+LU0827889485 BlackRock BLACKROCK World Healthscience D2 EUR EUR
+LU0252963383 BlackRock BLACKROCK World Mining D2 EUR EUR
+LU0376438312 BlackRock BLACKROCK World Technology D2 EUR EUR
+LU0496654400 BlackRock BLACKROCK World Agriculture D2 EUR EUR
+LU0823400766 BNP Paribas BNP PARIBAS EQUITY BEST SELECTION EUROPE EUR
+LU0823400840 BNP Paribas BNP PARIBAS EQUITY BEST SELECTION EUROPE EUR
+LU0823404834 BNP Paribas BNP PARIBAS EQUITY EUROPE GROWTH EUR
+LU0111493838 BNP Paribas BNP PARIBAS EQUITY HIGH DIVIDEND EUROPE EUR
+LU0111445861 BNP Paribas BNP PARIBAS EQUITY JAPAN JPY
+LU0823432611 BNP Paribas BNP PARIBAS EQUITY RUSSIA EUR
+LU0823433932 BNP Paribas BNP PARIBAS EQUITY TURKEY EUR
+LU0823435473 BNP Paribas BNP PARIBAS EQUITY USA GROWTH USD
+LU0831546832 BNP Paribas BNP PARIBAS L1 EQUITY WORLD AQUA EUR
+IE00B5MQDC34 Comgest Comgest Growth Asia ex Japan (I) USD
+IE00B4VRKF23 Comgest Comgest Growth Emerging Markets (I) EUR
+IE00B5WN3467 Comgest Comgest Growth Europe (I) EUR
+IE00B62TFX49 Comgest Comgest Growth GEM Promising Companies (I) USD
+IE00B4ZJ4188 Comgest Comgest Growth Greater Europe Opportunities EUR
+IE00BD5HXH43 Comgest Comgest Growth India (I) EUR
+FR0011238344 Comgest Comgest Magellan C (I) EUR
+BE6253583908 Dexia Dexia Sustainable Euro Bonds - R - C EUR
+BE6253584914 Dexia Dexia Sustainable Euro Corporate Bonds - R - C EUR
+BE6253598088 Dexia Dexia Sustainable Europe - R - C EUR
+BE6253606162 Dexia Dexia Sustainable North America - R - C USD
+LU0871835996 DWS Deutsche Bank CROCI Sectors R0C-E EUR
+LU0708389589 DWS Deutsche Bank DWS Concept Winton Global Equity E2 USD
+DE000DWS1UN6 DWS Deutsche Bank DWS Covered Bond Fund FD EUR
+LU0273175025 DWS Deutsche Bank DWS Invest Asian Small/Mid Cap E2 USD
+LU0616856778 DWS Deutsche Bank DWS Invest China Bonds E2 USD
+LU0273179522 DWS Deutsche Bank DWS Invest Convertibles E2H USD
+LU0179220412 DWS Deutsche Bank DWS Invest Convertibles FC EUR
+LU0329761406 DWS Deutsche Bank DWS Invest Emerging Markets Top Dividend E2 USD
+LU0145657366 DWS Deutsche Bank DWS Invest Euro Bonds (Short) FC EUR
+LU0740823785 DWS Deutsche Bank DWS Invest German Equities FC EUR
+LU0826453069 DWS Deutsche Bank DWS Invest II Global Growth FC EUR
+LU0507266574 DWS Deutsche Bank DWS Invest Top Dividend E2 USD
+LU0145647722 DWS Deutsche Bank DWS Invest Top Euroland FC EUR
+DE000DWS1VB9 DWS Deutsche Bank DWS Top Dividende FD EUR
+LU0861997004 East Capital Asset East Capital (Lux) - Eastern European Fund Class R EUR EUR
+LU0861992385 East Capital Asset East Capital (Lux) - Russian Fund Class R EUR EUR
+LU0976192475 F&C Portfolios European Small Cap EUR
+LU0936575868 Fidelity FF China Focus Fund Y-ACC-EUR EUR
+LU0346390270 Fidelity FF European High Yield Fund Y-ACC-EUR EUR
+LU0318939252 Fidelity Fidelity American Growth Fund Y-ACC-USD USD
+LU0605515880 Fidelity Fidelity Global Dividend Fund Y-ACC-EUR (hedged) EUR
+FR0010321802 Financiere de L'Echiquier/Fran Echiquier Agressor EUR
+FR0010321828 Financiere de L'Echiquier/Fran Echiquier Major EUR
+NL0006144636 Fonds Bloemendaal Fonds Bloemendaal EUR
+LU0959059279 Franklin Templeton Franklin European Growth Fund EUR
+LU0792612466 Franklin Templeton Franklin US Opportunities Fund USD
+LU0871812789 Franklin Templeton Templeton Asian Growth Fund EUR
+LU0976565506 Franklin Templeton Templeton Emerging Markets Bond USD
+LU0889564604 Franklin Templeton Templeton Global Bond EUR
+LU0976564798 Franklin Templeton Templeton Global Total Return EUR
+NL0010604070 Fundshare FundShare Ambassador Aandelen Fonds EUR
+NL0010604088 Fundshare FundShare Ambassador Obligatie Fonds EUR
+NL0010261111 Fundshare FundShare Braziliaans Obligatie Fonds EUR
+NL0010363354 Fundshare FundShare Harmony Inviniti Aandelen Fonds EUR
+NL0010556577 Fundshare FundShare Mahler India Fund EUR
+NL0010261103 Fundshare FundShare Noors Staatsobligatie Fonds EUR
+NL0010257879 Fundshare FundShare Sequoia Quantum Satis Fund EUR
+NL0010261095 Fundshare FundShare Stroeve Beheerd Beleggen Behoud EUR
+NL0010261087 Fundshare FundShare Stroeve Beheerd Beleggen Groei EUR
+LU0860993574 Goldman Sachs GS BRICs© Portfolio EUR
+LU0830625769 Goldman Sachs GS Europe CORE© Equity Portfolio EUR
+LU0858293193 Goldman Sachs GS Global Credit Portfolio (Hedged) EUR
+LU0830672258 Goldman Sachs GS Global High Yield Portfolio USD
+LU0858299471 Goldman Sachs GS Global Strategic Income Bond Portfolio EUR
+LU0830653209 Goldman Sachs GS Growth & Emerging Markets Debt Portfolio USD
+LU0858291221 Goldman Sachs GS US Equity Portfolio EUR
+LU0828814094 Henderson Henderson Asian Dividend Income Fund H2 EUR EUR
+LU0976556265 Henderson Henderson Asia-Pacific Property Equities Fund H1 USD USD
+LU0995139424 Henderson Henderson Continental European Fund H€ Acc EUR
+LU0892274290 Henderson Henderson Euro Corporate Bond Fund H2 EUR EUR
+LU0892275263 Henderson Henderson Global Property Equities Fund H2 EUR EUR
+LU0828813526 Henderson Henderson Global Technology Fund H2 EUR EUR
+LU0995107140 Henderson Henderson Japanese Equity Fund H2 USD USD
+LU0892274704 Henderson Henderson Pan European Alpha Fund H2 EUR EUR
+LU0942194852 Henderson Henderson Pan European Equity Fund H1 EUR EUR
+LU0828814250 Henderson Henderson Pan European Equity Fund H2 EUR EUR
+LU0892274969 Henderson Henderson Pan European Property Equities Fund H2 EUR EUR
+LU0995140356 Henderson Henderson Pan European Smaller Companies Fund H€ Acc EUR
+NL0000688430 HiQ Invest HiQ Invest Fundamental Value Fund EUR
+NL0009732890 HiQ Invest HiQ Invest Market Neutral Fund EUR
+LU0355585190 JPMorgan JPM Africa Equity B (acc) - USD USD
+LU0430493303 JPMorgan JPM Aggregate Bond B (acc) - USD USD
+LU0861977154 JPMorgan JPM Emerging Markets Equity B (acc) - EUR EUR
+LU0332400588 JPMorgan JPM Emerging Markets Local Currency Debt B (acc) - EUR EUR
+LU0759999849 JPMorgan JPM Emerging Markets Opportunities B (acc) - EUR EUR
+LU0103814108 JPMorgan JPM Euro Liquidity B (acc.) EUR
+LU0289214461 JPMorgan JPM Europe Equity Plus B (acc) - EUR EUR
+LU0169527966 JPMorgan JPM Europe Strategic Dividend B (acc) - EUR EUR
+LU0070212831 JPMorgan JPM Global Balanced B (acc) - EUR EUR
+LU0620851005 JPMorgan JPM Global Corporate Bond B (acc) - EUR (hedged) EUR
+LU0108416156 JPMorgan JPM Global High Yield Bond B (acc) - EUR (hedged) EUR
+LU0979427654 JPMorgan JPM Global Income B (acc) - EUR EUR
+LU0828466119 JPMorgan JPM Highbridge US STEEP B (acc) - EUR EUR
+LU0325074762 JPMorgan JPM Highbridge US STEEP B (acc) - USD USD
+LU0289470972 JPMorgan JPM Income Opportunity B (acc) - EUR (hedged) EUR
+LU0464446391 JPMorgan JPM Income Opportunity B (acc) - USD USD
+LU0861977667 JPMorgan JPM Latin America Equity B (acc) - EUR EUR
+LU0103815170 JPMorgan JPM Sterling Liquidity B (acc.) GBP
+LU0103813043 JPMorgan JPM US Dollar Liquidity B (acc.) USD
+LU0281484021 JPMorgan JPM US Select Equity Plus B (acc) - USD USD
+LU0828467273 JPMorgan JPM US Value B (acc) - EUR (hedged) EUR
+LU0933155292 JPMorgan JPMorgan Asia Equity B (acc) - USD USD
+LU0129499017 JPMorgan JPMorgan Asia Pacific Income B (acc) - USD USD
+LU0927663491 Kempen & Co Kempen (Lux) European High Dividend Fund Fund AN EUR
+IE00BD616T89 Man Investments GLG Global Equity Alternative - class IN USD
+IE00B45R5B91 Man Investments Japan CoreAlpha Equity class I EUR
+IE00B5646799 Man Investments Japan CoreAlpha Equity class I USD
+NL0010200549 Man Investments Man AHL Diversified Markets EU - Tranche C EUR
+BE6246057333 Petercam Asset Petercam Equities Euroland - W EUR
+BE6246074502 Petercam Asset Petercam Equities Europe Dividend - W EUR
+BE6246087637 Petercam Asset Petercam Equities North America Dividend - W EUR
+LU0606353232 Pictet Pictet-Emerging Local Currency Debt-HI dy EUR EUR
+LU0340553600 Pictet Pictet-Emerging Local Currency Debt-HI EUR EUR
+LU0760712090 Pictet Pictet-Emerging Local Currency Debt-I dy USD USD
+LU0128472205 Pictet Pictet-EUR Corporate Bonds-I EUR
+LU0736302158 Pictet Pictet-EUR Short Term High Yield-HI USD USD
+LU0726357444 Pictet Pictet-EUR Short Term High Yield-I EUR
+LU0188800162 Pictet Pictet-Europe Index-I EUR EUR
+LU0788035094 Pictet Pictet-Global Emerging Debt-HI dm EUR EUR
+LU0953040879 Pictet Pictet-Global Emerging Debt-I dy USD USD
+LU0386875149 Pictet Pictet-Global Megatrend Selection-I EUR EUR
+LU0386856941 Pictet Pictet-Global Megatrend Selection-I USD USD
+LU0128497707 Pictet Pictet-Short-Term Money Market USD-I USD
+LU0448623016 Pictet Pictet-US High Yield-I USD USD
+LU0188798671 Pictet Pictet-USA Index-I USD USD
+LU0255980244 Pictet Pictet-Water-I USD USD
+IE00B3W9BG81 PIMCO Diversified Income Duration Hedged Fund EUR
+IE00B0C18065 PIMCO Diversified Income Fund USD
+IE00B1JC0H05 PIMCO Diversified Income Fund EUR
+IE00B39T3767 PIMCO Emerging Local Bond Fund EUR
+IE0032568770 PIMCO Emerging Markets Bond Fund EUR
+IE0002461055 PIMCO Global Bond Fund USD
+IE0032568887 PIMCO Global Bond Fund USD
+IE0002420739 PIMCO Global High Yield Bond Fund USD
+IE00B2R34Y72 PIMCO Global High Yield Bond Fund EUR
+IE00B8DTNZ55 PIMCO Global Investment Grade Credit Fund USD
+IE00B639QZ24 PIMCO Global Multi-Asset Fund EUR
+IE0033591748 PIMCO Global Real Return Fund USD
+IE0033666466 PIMCO Global Real Return Fund EUR
+IE00B80G9288 PIMCO Income Fund EUR
+IE00B87KCF77 PIMCO Income Fund USD
+IE0032379574 PIMCO Low Average Duration Fund USD
+IE00B62L8426 PIMCO Low Average Duration Fund EUR
+IE0002460867 PIMCO Total Return Bond Fund USD
+IE0033989843 PIMCO Total Return Bond Fund EUR
+IE00B0CNPY59 PIMCO UK Long Term Corporate Bond Fund GBP
+IE00B3FNF987 PIMCO Unconstrained Bond Fund USD
+LU0792910993 Robeco Robeco Capital Growth Funds Robeco High Yield Bonds 0FH EUR cap EUR
+LU0792910563 Robeco Robeco Capital Growth Funds Robeco High Yield Bonds FH EUR cap EUR
+LU0620638824 Robeco Robeco Euro Government Bonds EUR
+LU0792901570 Robeco Robeco Lux-o-rente FH EUR cap EUR
+LU0972983869 Schroder Schroder GAIA Avoca Credit USD Hedged USD
+LU0885728070 Schroder Schroder GAIA Sirios US Equity USD
+LU0177222394 Schroder Schroder ISF Emerging Markets Debt Absolute Return EUR Hedged EUR
+LU0968426949 Schroder Schroder ISF Emerging Markets Debt Absolute Return EUR Hedged EUR
+LU0968427160 Schroder Schroder ISF EURO Corporate Bond EUR
+LU0966865874 Schroder Schroder ISF European Smaller Companies EUR
+LU0562314715 Schroder Schroder ISF Frontier Markets Equity USD
+LU0966867227 Schroder Schroder ISF Global Multi-Asset Income EUR Hedged EUR
+LU0969111813 Schroder Schroder ISF QEP Global Emerging Markets GBP GBP
+LU0201322640 Schroder Schroder ISF Strategic Bond USD
+NO0008004009 Skagen Skagen Global A NOK
+NO0010140502 Skagen Skagen Kon-Tiki A NOK
+NO0008000445 Skagen Skagen Vekst A NOK
+GB00B3D8PZ13 Threadneedle Threadneedle Credit Opportunities Fund EUR
+GB00B1XK5Q40 Threadneedle Threadneedle Emerging Market Bond USD
+GB00B3T70242 Threadneedle Threadneedle European Bond EUR
+GB00B3M84Q67 Threadneedle Threadneedle Global Bond EUR
+GB0033885327 Threadneedle Threadneedle UK Corporate Bond GBP
+IE00B03HCZ61 Vanguard Vanguard Global Stock Index Inv EUR EUR

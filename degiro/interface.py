@@ -1,6 +1,6 @@
 import degiro.remote
 import degiro.production
-from degiro.models import PositionRow, Fund, Portfolio, Orders, Order
+from degiro.models import PositionRow, Fund, Portfolio, Orders, Order, Funds
 
 
 def login():
@@ -26,8 +26,17 @@ class Interface(object):
 
     def get_funds(self):
         if not self.funds:
-            self.funds = set([Fund(f) for f in self.session.get_funds()])
+            self.funds = self._really_get_funds()
         return self.funds
+
+    def _really_get_funds(self):
+        funds = Funds()
+        free_isins = get_free_isins()
+        for fdata in self.session.get_funds():
+            fund = Fund(fdata)
+            fund.free = fund.isin in free_isins
+            funds.add(fund)
+        return funds
 
     def sell(self, position):
         return self.session.sell(position.fund.id, position.size)
@@ -53,3 +62,13 @@ class Interface(object):
         
     def cancel(self, order):
         self.session.cancel(order.id)
+
+
+def get_free_isins():
+    isins = []
+    with open('docs/DEGIRO_Beleggingsfondsen_Kernselectie.txt') as fp:
+        for line in fp:
+            (isin, rest) = line.split(' ', 1)
+            if len(isin) == 12:
+                isins.append(isin)
+    return isins

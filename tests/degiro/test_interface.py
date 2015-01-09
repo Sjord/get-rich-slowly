@@ -34,3 +34,10 @@ class InterfaceTest(TestCase):
         self.assertEquals(len(not_in_portfolio), 1)
         self.assertEquals(not_in_portfolio.pop().id, '5003027')
 
+    def test_free_data_is_added_to_funds(self):
+        funds = self.interface.get_funds()
+        non_free = [f for f in funds if f.isin == 'LI0837977205'][0]
+        self.assertFalse(non_free.free)
+
+        free = [f for f in funds if f.isin == 'LU0837977544'][0]
+        self.assertTrue(free.free)
