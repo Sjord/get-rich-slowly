@@ -23,8 +23,8 @@ class MonthlyBuy(object):
 
 
 class Ema(object):
-    shortDays = 9
-    longDays = 14
+    shortDays = 44
+    longDays = 55
 
     def __init__(self, fund):
         self.emaShort = fund.prices[0].price
@@ -50,7 +50,7 @@ def predict_profit(fund):
     bought = None
     multiplier = None
 
-    ndays = min(len(fund.prices), 120)
+    ndays = min(len(fund.prices), 131)
 
     advisor = Ema(fund)
     [advisor.update(p) for p in fund.prices[0:-ndays]]
