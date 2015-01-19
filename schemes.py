@@ -67,7 +67,7 @@ def predict_profit(fund):
             bought = None
             multiplier = None
     if bought:
-        profit += fund.prices[-1].price - bought
+        profit += (fund.prices[-1].price - bought) * multiplier
     return profit
 
 
