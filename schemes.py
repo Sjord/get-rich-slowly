@@ -45,11 +45,7 @@ class Ema(object):
         alpha = 2/(self.longDays+1)
         self.emaLong = alpha * price + (1 - alpha) * self.emaLong
 
-        if (self.emaShort > self.emaLong):
-            return Advice.buy
-        if (self.emaLong > self.emaShort):
-            return Advice.sell
-        return Advice.none
+        return self.emaShort > self.emaLong
 
 
 def predict_profit(fund):

@@ -28,7 +28,7 @@ class TestPredictProfit(TestCase):
         self.assertEquals(Advice.sell, get_recent_advice(fund))
 
         fund = get_fund(lambda x: 5)
-        self.assertEquals(Advice.none, get_recent_advice(fund))
+        self.assertEquals(Advice.sell, get_recent_advice(fund))
 
 
 def get_ema(fund):
