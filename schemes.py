@@ -26,9 +26,16 @@ class Ema(object):
     shortDays = 44
     longDays = 55
 
-    def __init__(self, fund):
-        self.emaShort = fund.prices[0].price
-        self.emaLong = fund.prices[0].price
+    def _init(self, prices):
+        self.emaShort = prices[0].price
+        self.emaLong = prices[0].price
+
+    def updateAll(self, prices):
+        prices = prices[-350:]
+        self._init(prices)
+        for p in prices:
+            lastAdvice = self.update(p)
+        return lastAdvice
 
     def update(self, priceobj):
         price = priceobj.price
@@ -52,8 +59,8 @@ def predict_profit(fund):
 
     ndays = min(len(fund.prices), 131)
 
-    advisor = Ema(fund)
-    [advisor.update(p) for p in fund.prices[0:-ndays]]
+    advisor = Ema()
+    advisor.updateAll(fund.prices[0:-ndays])
 
     for i in range(0, ndays):
         p = fund.prices[i-ndays]
@@ -74,8 +81,8 @@ def predict_profit(fund):
 def get_recent_advice(fund):
     if not fund.prices:
         return Advice.none
-    advisor = Ema(fund)
-    advice = [advisor.update(p) for p in fund.prices][-1]
+    advisor = Ema()
+    advice = advisor.updateAll(fund.prices)
     return advice
 
 

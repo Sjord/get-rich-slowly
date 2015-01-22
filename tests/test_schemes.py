@@ -32,9 +32,8 @@ class TestPredictProfit(TestCase):
 
 
 def get_ema(fund):
-    ema = Ema(fund)
-    for p in fund.prices:
-        ema.update(p)
+    ema = Ema()
+    ema.updateAll(fund.prices)
     return (ema.emaShort, ema.emaLong)
 
 
