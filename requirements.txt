@@ -5,3 +5,4 @@ pygal==1.4.6
 requests==2.3.0
 unittest2==0.5.1
 mock==1.0.1
+matplotlib==1.4.2

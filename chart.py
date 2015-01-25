@@ -1,13 +1,26 @@
-import json
 import sys
-import pygal
+import matplotlib.pyplot as plt
+import schemes
+from models import Fund
+
 
 fn = sys.argv[1]
-with open(fn) as f:
-    data = json.load(f)
+fund = Fund.load(fn)
 
-chart = pygal.Line()
-chart.x_labels = [d['date'] for d in data['prices']]
-chart.add(fn, [d['price'] for d in data['prices']])
-chart.render_to_file('out.svg')
+prices = [d for d in fund.prices]
+e = schemes.Ema()
+e.updateAll(prices[0:1])
+shorts = []
+longs = []
+for p in prices:
+    e.update(p)
+    shorts.append(e.emaShort)
+    longs.append(e.emaLong)
 
+dates = [d.date for d in prices]
+pricepoints = [d.price for d in prices]
+
+plt.plot(dates, pricepoints, 'b-',
+         dates, shorts, 'r-',
+         dates, longs, 'g-')
+plt.show()
