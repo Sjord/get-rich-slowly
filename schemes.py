@@ -53,7 +53,7 @@ def predict_profit(fund):
     bought = None
     multiplier = None
 
-    ndays = min(len(fund.prices), 131)
+    ndays = min(len(fund.prices) - 1, 131)
 
     advisor = Ema()
     advisor.updateAll(fund.prices[0:-ndays])
