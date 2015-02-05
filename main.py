@@ -3,7 +3,7 @@ import schemes
 import models
 
 
-min_amount = 100
+min_amount = 110
 
 
 def determine_funds_to_sell(portfolio):
@@ -60,7 +60,7 @@ if money >= min_amount:
     to_buy = determine_funds_to_buy(buyable)
     for fund in to_buy:
         try:
-            amount = money / int(money / min_amount)
+            amount = (min_amount + money / int(money / min_amount)) / 2
             print "Buying", fund, "for", amount
             session.buy(fund, amount)
             money -= amount
