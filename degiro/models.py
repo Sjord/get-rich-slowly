@@ -13,6 +13,12 @@ class Portfolio(list):
 class PositionRow(object):
     def __init__(self, data):
         self.size = data['size']
+        self.totVal = data['totVal']
+        self.pl = data['pl']
+
+    @property
+    def profit(self):
+        return self.pl / self.totVal
 
     def __repr__(self):
         return "%f of %s" % (self.size, self.fund)

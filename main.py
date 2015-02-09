@@ -4,6 +4,7 @@ import models
 
 
 min_amount = 110
+sell_profit = 0.04
 
 
 def determine_funds_to_sell(portfolio):
@@ -11,7 +12,7 @@ def determine_funds_to_sell(portfolio):
     for position in portfolio:
         mfund = models.Fund.load(position.fund.isin)
         advice = schemes.get_recent_advice(mfund)
-        if advice == schemes.Advice.sell:
+        if advice == schemes.Advice.sell or position.profit > sell_profit:
             to_sell.append(position)
 
     return to_sell
