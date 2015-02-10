@@ -34,8 +34,7 @@ def should_cancel_order(order):
     isin = order.fund.isin
     mfund = models.Fund.load(isin)
     advice = schemes.get_recent_advice(mfund)
-    return (order.buy and advice != schemes.Advice.buy) or (order.sell and advice != schemes.Advice.sell)
-
+    return (order.buy and advice != schemes.Advice.buy)
 
 
 session = degiro.login()
