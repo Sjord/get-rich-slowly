@@ -8,7 +8,9 @@ class InterfaceTest(TestCase):
         session = Mock()
         session.get_portfolio.return_value = [{
             'id': '4998723',
-            'size': 0.821
+            'size': 0.821,
+            'totVal': 100.,
+            'pl': 3.,
         }]
         session.get_funds.return_value = [{
             'id': '4998723',
