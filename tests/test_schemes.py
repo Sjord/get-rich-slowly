@@ -31,6 +31,16 @@ class TestPredictProfit(TestCase):
         fund = get_fund(lambda x: 5)
         self.assertEquals(Advice.sell, get_recent_advice(fund))
 
+    def test_predict_profit_does_not_raise_with_ten_prices(self):
+        fund = get_fund(lambda x: 5)
+        fund.prices = fund.prices[0:10]
+        predict_profit(fund)
+
+    def test_predict_profit_does_not_raise_with_one_price(self):
+        fund = get_fund(lambda x: 5)
+        fund.prices = fund.prices[0:1]
+        predict_profit(fund)
+
 
 def get_ema(fund):
     ema = Ema()

@@ -52,6 +52,9 @@ def predict_profit(fund):
     bought = None
     multiplier = None
 
+    if len(fund.prices) < 2:
+        return 0
+
     ndays = min(len(fund.prices) - 1, 131)
 
     advisor = Ema()
