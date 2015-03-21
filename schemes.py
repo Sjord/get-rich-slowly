@@ -1,6 +1,5 @@
 from __future__ import division
 import sys
-from models import Fund
 
 
 class Advice(object):

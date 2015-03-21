@@ -10,8 +10,7 @@ sell_profit = 0.04
 def determine_funds_to_sell(portfolio):
     to_sell = []
     for position in portfolio:
-        mfund = models.Fund.load(position.fund.isin)
-        advice = schemes.get_recent_advice(mfund)
+        advice = schemes.get_recent_advice(position.fund)
         if advice == schemes.Advice.sell or position.profit > sell_profit:
             to_sell.append(position)
 
@@ -19,53 +18,59 @@ def determine_funds_to_sell(portfolio):
 
 
 def determine_funds_to_buy(funds):
-    isins = [f.isin for f in funds]
-    mfunds = [models.Fund.load(isin) for isin in isins]
-    buyfunds = [f for f in mfunds if schemes.get_recent_advice(f) == schemes.Advice.buy]
+    buyfunds = [f for f in funds if schemes.get_recent_advice(f) == schemes.Advice.buy]
     if len(buyfunds) > 1:
         buyfunds.sort(key=schemes.predict_profit)
         buyfunds = buyfunds[-3:]
 
-    buy_isins = [f.isin for f in buyfunds]
-    return [f for f in funds if f.isin in buy_isins]
+    return buyfunds
 
 
 def should_cancel_order(order):
-    isin = order.fund.isin
-    mfund = models.Fund.load(isin)
-    advice = schemes.get_recent_advice(mfund)
+    advice = schemes.get_recent_advice(order.fund)
     return (order.buy and advice != schemes.Advice.buy)
 
 
-session = degiro.login()
-available_funds = session.get_funds()
-portfolio = session.get_portfolio()
-orders = session.get_orders()
+def trade(session, pricelist):
+    available_funds = session.get_funds()
+    pricelist.extend_with_prices(available_funds)
 
-sellable = [p for p in portfolio.active if p.fund not in orders.funds]
+    portfolio = session.get_portfolio()
+    pricelist.extend_with_prices(portfolio.funds)
 
-to_sell = determine_funds_to_sell(sellable)
-for position in to_sell:
-    print "Selling", position
-    session.sell(position)
+    orders = session.get_orders()
+    pricelist.extend_with_prices(orders.funds)
 
-for order in orders:
-    if should_cancel_order(order):
-        print "Canceling order", order
-        session.cancel(order)
+    sellable = [p for p in portfolio.active if p.fund not in orders.funds]
 
-money = session.get_free_space()
-if money >= min_amount:
-    buyable = available_funds.eur.free - portfolio.active.funds - orders.funds
-    to_buy = determine_funds_to_buy(buyable)
-    for fund in to_buy:
-        try:
-            amount = (min_amount + money / int(money / min_amount)) / 2
-            print "Buying", fund, "for", amount
-            session.buy(fund, amount)
-            money -= amount
+    to_sell = determine_funds_to_sell(sellable)
+    for position in to_sell:
+        print "Selling", position
+        session.sell(position)
 
-            if money < min_amount:
-                break
-        except degiro.DeGiroError as e:
-            print e
+    for order in orders:
+        if should_cancel_order(order):
+            print "Canceling order", order
+            session.cancel(order)
+
+    money = session.get_free_space()
+    if money >= min_amount:
+        buyable = available_funds.eur.free - portfolio.active.funds - orders.funds
+        to_buy = determine_funds_to_buy(buyable)
+        for fund in to_buy:
+            try:
+                amount = (min_amount + money / int(money / min_amount)) / 2
+                print "Buying", fund, "for", amount
+                session.buy(fund, amount)
+                money -= amount
+
+                if money < min_amount:
+                    break
+            except degiro.DeGiroError as e:
+                print e
+
+
+if __name__ == "__main__":
+    session = degiro.login()
+    pricelist = models.PriceList()
+    trade(session, pricelist)

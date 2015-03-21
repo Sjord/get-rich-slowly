@@ -1,7 +1,8 @@
 from schemes import predict_profit, Ema, Advice, get_recent_advice
 from unittest2 import TestCase
-from models import Fund, Price
+from models import Price
 import math
+from mock import Mock
 
 
 class TestPredictProfit(TestCase):
@@ -38,7 +39,7 @@ def get_ema(fund):
 
 
 def get_fund(get_price):
-    fund = Fund()
+    fund = Mock()
     fund.prices = []
     for i in range(1, 1000):
         p = Price()

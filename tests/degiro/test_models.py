@@ -1,6 +1,6 @@
 from unittest2 import TestCase
 from mock import Mock
-from degiro.models import Funds
+from degiro.models import Funds, Fund
 
 
 class FundsTest(TestCase):
