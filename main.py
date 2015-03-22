@@ -4,14 +4,13 @@ import models
 
 
 min_amount = 110
-sell_profit = 0.04
 
 
 def determine_funds_to_sell(portfolio):
     to_sell = []
     for position in portfolio:
         advice = schemes.get_recent_advice(position.fund)
-        if advice == schemes.Advice.sell or position.profit > sell_profit:
+        if advice == schemes.Advice.sell:
             to_sell.append(position)
 
     return to_sell
@@ -28,7 +27,7 @@ def determine_funds_to_buy(funds):
 
 def should_cancel_order(order):
     advice = schemes.get_recent_advice(order.fund)
-    return (order.buy and advice != schemes.Advice.buy)
+    return (order.buy and advice != schemes.Advice.buy) or (order.sell and advice != schemes.Advice.sell)
 
 
 def trade(session, pricelist):

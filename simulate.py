@@ -72,7 +72,7 @@ class FakeSession(object):
         self.orders.append(order)
 
     def cancel(self, order):
-        raise NotImplementedError()
+        self.orders.remove(order)
 
     def _execute_orders(self, orders):
         for order in orders:
