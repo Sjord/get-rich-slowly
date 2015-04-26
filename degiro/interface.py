@@ -20,7 +20,10 @@ class Interface(object):
         rows = Portfolio()
         for p in portfolio:
             row = PositionRow(p)
-            (row.fund,) = [f for f in funds if f.id == p['id']]
+            try:
+                (row.fund,) = [f for f in funds if f.id == p['id']]
+            except ValueError as orig:
+                raise ValueError("%s for fund %s" % (orig, p['product']))
             rows.append(row)
         return rows
 
