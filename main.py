@@ -1,6 +1,7 @@
 import degiro
 import schemes
 import models
+import log
 
 
 min_amount = 110
@@ -35,6 +36,7 @@ def trade(session, pricelist):
     pricelist.extend_with_prices(available_funds)
 
     portfolio = session.get_portfolio()
+    log.write_portfolio(portfolio)
     pricelist.extend_with_prices(portfolio.funds)
 
     orders = session.get_orders()
