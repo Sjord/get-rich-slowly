@@ -32,7 +32,7 @@ class Fund(object):
         self.currency = data['currency']
 
     def __repr__(self):
-        return self.name
+        return self.name.encode('utf-8')
 
     def __eq__(self, other):
         return self.id == other.id
