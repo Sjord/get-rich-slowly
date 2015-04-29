@@ -23,6 +23,8 @@ class Interface(object):
             try:
                 (row.fund,) = [f for f in funds if f.id == p['id']]
             except ValueError as orig:
+                if row.size == 0:
+                    continue
                 raise ValueError("%s for fund %s" % (orig, p['product']))
             rows.append(row)
         return rows
