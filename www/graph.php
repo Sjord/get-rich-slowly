@@ -62,7 +62,7 @@ $.getJSON('graph.php?d=1', function (data) {
             .tickFormat(function(d) { return d3.time.format('%Y-%m-%d')(new Date(d)) });
 
         chart.yAxis
-            .tickFormat(d3.format(',.1f'));
+            .tickFormat(d3.format(',.2f'));
 
         chart.forceY([0]);
 
