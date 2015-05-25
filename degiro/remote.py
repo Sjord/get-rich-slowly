@@ -1,4 +1,5 @@
 import requests
+import collections
 import json
 
 
@@ -28,6 +29,8 @@ class DeGiroError(RuntimeError):
     pass
 
 
+MoneyAmount = collections.namedtuple('MoneyAmount', ['freeSpace', 'cash'])
+
 
 class Session(object):
     def __init__(self, rsession, settings):
@@ -42,10 +45,12 @@ class Session(object):
         data = json.loads(r.content)
         return data['rows']
 
-    def get_free_space(self):
+    def get_money_amount(self):
         r = self.rsession.get(self.settings.total_portfolio_url)
         total_portfolio = from_json(r.content)
-        return total_portfolio['totalPortfolio']['value']['freeSpace']
+        freeSpace = total_portfolio['totalPortfolio']['value']['freeSpace']
+        cash = total_portfolio['totalPortfolio']['value']['cash']
+        return MoneyAmount(freeSpace, cash)
 
     def get_portfolio(self):
         r = self.rsession.get(self.settings.portfolio_url)
@@ -171,7 +176,6 @@ class DeGiroDict(object):
             raise TypeError()
 
         return [d['name'] for d in self.data]
-        
 
 
 class LoginFailed(DeGiroError):

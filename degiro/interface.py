@@ -49,8 +49,8 @@ class Interface(object):
     def buy(self, fund, amount):
         return self.session.buy(fund.id, amount)
 
-    def get_free_space(self):
-        return self.session.get_free_space()
+    def get_money_amount(self):
+        return self.session.get_money_amount()
 
     def get_orders(self):
         funds = self.get_funds()
@@ -64,7 +64,7 @@ class Interface(object):
 
     def logout(self):
         self.session.logout()
-        
+
     def cancel(self, order):
         self.session.cancel(order.id)
 

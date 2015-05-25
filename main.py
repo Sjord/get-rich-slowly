@@ -35,8 +35,10 @@ def trade(session, pricelist):
     available_funds = session.get_funds()
     pricelist.extend_with_prices(available_funds)
 
+    money = session.get_money_amount()
     portfolio = session.get_portfolio()
     log.write_portfolio(portfolio)
+    log.write_money_amount(money)
     pricelist.extend_with_prices(portfolio.funds)
 
     orders = session.get_orders()
@@ -54,18 +56,18 @@ def trade(session, pricelist):
             print "Canceling order", order
             session.cancel(order)
 
-    money = session.get_free_space()
-    if money >= min_amount:
+    freeSpace = money.freeSpace
+    if freeSpace >= min_amount:
         buyable = available_funds.eur.free - portfolio.active.funds - orders.funds
         to_buy = determine_funds_to_buy(buyable)
         for fund in to_buy:
             try:
-                amount = (min_amount + money / int(money / min_amount)) / 2
+                amount = (min_amount + freeSpace / int(freeSpace / min_amount)) / 2
                 print "Buying", fund, "for", amount
                 session.buy(fund, amount)
-                money -= amount
+                freeSpace -= amount
 
-                if money < min_amount:
+                if freeSpace < min_amount:
                     break
             except degiro.DeGiroError as e:
                 print e
