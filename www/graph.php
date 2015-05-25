@@ -4,6 +4,11 @@
         readfile('../data/portfolio_history.json');
         exit();
     }
+    if ($_GET['m']) {
+        header('Content-Type: application/json');
+        readfile('../data/money_history.json');
+        exit();
+    }
 ?>
 
 <script src="js/jquery-2.1.3.min.js" charset="utf-8"></script>

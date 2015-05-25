@@ -20,7 +20,13 @@ function get_fund_names(fundPrices) {
     });
 }
 
-$.getJSON('graph.php?d=1', function (data) {
+var funds = $.getJSON('graph.php?d=1');
+var money = $.getJSON('graph.php?m=1');
+
+$.when(funds, money).done(function (fundsResult, moneyResult) {
+    data = fundsResult[0];
+    money = moneyResult[0];
+
     var allDates = get_all_dates(data);
     var allFunds = get_all_fund_names(data, allDates);
     
@@ -48,13 +54,17 @@ $.getJSON('graph.php?d=1', function (data) {
         
         previousFundNames = get_fund_names(data[date]);
     });
-    
+
     var totalPerDate = {};
     allDates.forEach(function (date) {
+        totalPerDate[date] = totalPerDate[date] || 0;
         data[date].forEach(function (fundPrice) {
-            totalPerDate[date] = totalPerDate[date] || 0;
             totalPerDate[date] += fundPrice['totVal']
         });
+
+        if (date in money) {
+            totalPerDate[date] += money[date]['cash'];
+        }
     }); 
     
     data = [];
@@ -65,12 +75,23 @@ $.getJSON('graph.php?d=1', function (data) {
         });
     }
 
+    var cashDataPoints = [];
+    for (var date in money) {
+        var timestamp = Date.parse(date);
+        cashDataPoints.push([timestamp, money[date].cash]);
+    }
+
+    data.push({
+        'key': 'cash',
+        'values': cashDataPoints.sort()
+    });
+
     var totalDataPoints = [];
     for (var date in totalPerDate) {
         var timestamp = Date.parse(date);
         totalDataPoints.push([timestamp, totalPerDate[date]]);
     }
-    
+
     data.push({
         'key': 'total',
         'values': totalDataPoints.sort()
