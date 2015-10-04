@@ -39,6 +39,7 @@ def trade(session, pricelist):
     portfolio = session.get_portfolio()
     log.write_portfolio(portfolio)
     log.write_money_amount(money)
+    return
     pricelist.extend_with_prices(portfolio.funds)
 
     orders = session.get_orders()

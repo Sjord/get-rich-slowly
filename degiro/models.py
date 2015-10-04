@@ -13,8 +13,8 @@ class Portfolio(list):
 class PositionRow(object):
     def __init__(self, data):
         self.size = data['size']
-        self.totVal = data['totVal']
-        self.pl = data['pl']
+        self.totVal = data['value']
+        self.pl = data['change']
 
     @property
     def profit(self):

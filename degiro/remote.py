@@ -36,29 +36,39 @@ class Session(object):
     def __init__(self, rsession, settings):
         self.rsession = rsession
         self.settings = settings
+        self.jsessionid = rsession.cookies['JSESSIONID']
+        self.accountid = settings.credentials['account_id']
+
+    def get(self, url, *args, **kwargs):
+        params = kwargs.get('params', {})
+        params['sessionId'] = self.jsessionid
+        params['accountId'] = self.accountid
+        kwargs['params'] = params
+        url = url.format(jsessionid=self.jsessionid, accountid=self.accountid)
+        return self.rsession.get(url, *args, **kwargs)
 
     def logout(self):
-        self.rsession.get(self.settings.logout_url)
+        self.get(self.settings.logout_url)
 
     def get_funds(self):
-        r = self.rsession.get(self.settings.funds_url)
+        r = self.get(self.settings.funds_url)
         data = json.loads(r.content)
         return data['rows']
 
     def get_money_amount(self):
-        r = self.rsession.get(self.settings.total_portfolio_url)
+        r = self.get(self.settings.total_portfolio_url)
         total_portfolio = from_json(r.content)
         freeSpace = total_portfolio['totalPortfolio']['value']['freeSpace']
         cash = total_portfolio['totalPortfolio']['value']['cash']
         return MoneyAmount(freeSpace, cash)
 
     def get_portfolio(self):
-        r = self.rsession.get(self.settings.portfolio_url)
+        r = self.get(self.settings.portfolio_url)
         portfolio = from_json(r.content)
         return portfolio['portfolio']['value']['conttype'][0]['positionrow'].ensure_list()
 
     def get_orders(self):
-        r = self.rsession.get(self.settings.orders_url)
+        r = self.get(self.settings.orders_url)
         orders = from_json(r.content)
         return orders['orders']['orderTable']['order'].ensure_list()
 
