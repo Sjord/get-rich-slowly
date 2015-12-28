@@ -24,8 +24,17 @@ def last_date(data):
         return None
 
 
+get_isins = [
+    'LU0376438312',  # BlackRock Global Funds World Technology Fund D
+    'LU0976192475',  # F & C Portfolios Fund F&C European SmallCap R (EUR)
+    'LU0995140356',  # Henderson Gartmore Fund Pan European Smaller Companies H
+    'LU0837973634',  # Aberdeen Global Emerging Markets Infrastructure Eq. Fd E2
+]
+
 for fund in funds:
     isin = fund.isin
+    if isin not in get_isins:
+        continue
     print isin
     fn = 'data/%s.json' % isin
 
@@ -43,7 +52,11 @@ for fund in funds:
     data.update(fund.__dict__)
     start = last_date(data) or '2012-01-01'
     stop = date.today()
-    newprices = source.get_prices(start, stop, isin)
+    try:
+        newprices = source.get_prices(start, stop, isin)
+    except IOError:
+        newprices = source.get_prices(start, stop, isin)
+
     data['prices'] = pricejoin(data['prices'], newprices)
 
     with open(fn, 'w') as f:
