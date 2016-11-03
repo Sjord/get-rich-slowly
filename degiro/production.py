@@ -1,6 +1,6 @@
 from credentials import credentials
 
-login_url = 'https://trader.degiro.nl/login/secure/j_spring_security_check'
+login_url = 'https://www.degiro.eu/trading/secure/login'
 logout_url = 'https://trader.degiro.nl/a/secure/j_spring_security_logout'
 funds_url = 'https://www.degiro.eu/products2/secure/v3/funds?iDisplayStart=0&iDisplayLength=1000'
 total_portfolio_url = 'https://trader.degiro.nl/trading/secure/v4/update/{accountid};jsessionid={jsessionid}?totalPortfolio=0'

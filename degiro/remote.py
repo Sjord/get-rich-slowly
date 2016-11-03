@@ -10,15 +10,17 @@ class DeGiro(object):
     def login(self):
         settings = self.settings
         data = {
-            'j_username': settings.credentials['username'],
-            'j_password': settings.credentials['password']
+            'username': settings.credentials['username'],
+            'password': settings.credentials['password']
         }
         s = requests.Session()
         response = s.post(settings.login_url, data)
-        if '/secure/v3' not in response.url:
+        try:
+            result = response.json()
+        except ValueError:
             raise LoginFailed
 
-        return Session(s, settings)
+        return Session(s, settings, result['jsessionid'], result['account'])
 
 
 def from_json(content):
@@ -33,11 +35,11 @@ MoneyAmount = collections.namedtuple('MoneyAmount', ['freeSpace', 'cash'])
 
 
 class Session(object):
-    def __init__(self, rsession, settings):
+    def __init__(self, rsession, settings, jsessionid, accountid):
         self.rsession = rsession
         self.settings = settings
-        self.jsessionid = rsession.cookies['JSESSIONID']
-        self.accountid = settings.credentials['account_id']
+        self.jsessionid = jsessionid
+        self.accountid = accountid
 
     def get(self, url, *args, **kwargs):
         params = kwargs.get('params', {})
