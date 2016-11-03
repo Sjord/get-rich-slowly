@@ -18,7 +18,7 @@ def write_portfolio(portfolio):
         f = open('data/portfolio_history.json', 'w')
         log = {}
 
-    log[key] = portfolio.active
+    log[key] = portfolio
 
     f.seek(0)
     json.dump(log, f, indent=4, cls=PortfolioEncoder)
@@ -35,7 +35,7 @@ def write_money_amount(money_amount):
         f = open('data/money_history.json', 'w')
         log = {}
 
-    log[key] = money_amount.__dict__
+    log[key] = money_amount
 
     f.seek(0)
     json.dump(log, f, indent=4)
