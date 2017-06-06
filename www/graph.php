@@ -1,13 +1,24 @@
 <?php
+    function serve_history_file($filename) {
+        $data = json_decode(file_get_contents($filename), true);
+        ksort($data);
+        $result = [];
+        $filter_value = date('Y-m-d', strtotime("-1 year"));
+        foreach ($data as $k => $v) {
+            if ($k >= $filter_value) {
+                $result[$k] = $v;
+            }
+        }
+        die(json_encode($result));
+    }
+
     if ($_GET['d']) {
         header('Content-Type: application/json');
-        readfile('../data/portfolio_history.json');
-        exit();
+        serve_history_file('../data/portfolio_history.json');
     }
     if ($_GET['m']) {
         header('Content-Type: application/json');
-        readfile('../data/money_history.json');
-        exit();
+        serve_history_file('../data/money_history.json');
     }
 ?>
 
