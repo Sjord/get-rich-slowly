@@ -5,7 +5,7 @@ import json
 class settings:
     login_url = 'https://trader.degiro.nl/login/secure/login'
     client_url = 'https://trader.degiro.nl/pa/secure/client'
-    update_url = 'https://trader.degiro.nl/trading/secure/v5/update/'
+    update_url = 'https://trader.degiro.nl/trading_s/secure/v5/update/'
 
 
 def login():
