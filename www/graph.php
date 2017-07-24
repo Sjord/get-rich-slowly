@@ -22,7 +22,7 @@
     }
 ?>
 
-<script src="js/jquery-2.1.3.min.js" charset="utf-8"></script>
+<script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
 <script src="js/d3.v3.min.js" charset="utf-8"></script>
 <script src="js/nv.d3.min.js" charset="utf-8"></script>
 <link rel="stylesheet" href="css/nv.d3.css" type="text/css" />
