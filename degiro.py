@@ -50,7 +50,7 @@ class Portfolio:
                     self.funds.append(row)
 
     def get_money_amount(self):
-        return self.cash
+        return {'cash': dutch_float(self.cash)}
 
     def get_active_portfolio(self):
         converted = []
