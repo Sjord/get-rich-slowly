@@ -1,11 +1,14 @@
 from credentials import credentials
 import requests
 import json
+import csv
+import io
+
 
 class settings:
     login_url = 'https://trader.degiro.nl/login/secure/login'
     client_url = 'https://trader.degiro.nl/pa/secure/client'
-    update_url = 'https://trader.degiro.nl/trading_s/secure/v5/update/'
+    portfolio_csv_url = 'https://trader.degiro.nl/reporting_s/secure/v3/positionReport/csv'
 
 
 def login():
@@ -31,41 +34,39 @@ class Session:
         return result['intAccount']
 
     def get_portfolio(self):
-        response = requests.get(settings.update_url + '%s;jsessionid=%s' % (self.accountid, self.jsessionid), params={'portfolio': 0, 'totalPortfolio': 0})
-        return Portfolio(response.json())
+        response = requests.get(settings.portfolio_csv_url + '?intAccount=%s&sessionId=%s&country=NL&lang=nl' % (self.accountid, self.jsessionid))
+        return Portfolio(response.text)
 
 
-def convert_degiro_listdict(listdict):
-    result = {}
-    for item in listdict:
-        name = item['name']
-        try:
-            value = item['value']
-        except KeyError:
-            value = None
-        result[name] = value
-    return result
+class Portfolio:
+    def __init__(self, csv_text):
+        self.funds = []
+        with io.StringIO(csv_text) as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row['Product'] == 'CASH & CASH FUND (EUR)':
+                    self.cash = row['Waarde in EUR']
+                else:
+                    self.funds.append(row)
 
-
-class Portfolio(dict):
     def get_money_amount(self):
-        return convert_degiro_listdict(self['totalPortfolio']['value'])
+        return self.cash
 
     def get_active_portfolio(self):
-        funds = self['portfolio']['value']
-        funds = [convert_degiro_listdict(f['value']) for f in funds]
-        funds = [f for f in funds if f['size'] > 0]
-        
         converted = []
-        for f in funds:
+        for f in self.funds:
             converted.append({
                 'fund': {
-                    'currency': f['currency'],
-                    'name': f['product'],
-                    'id': f['id'],
+                    'currency': f['Lokale waarde'],
+                    'name': f['Product'],
+                    'isin': f['Symbool/ISIN'],
                 },
-                'totVal': f['value'],
-                'size': f['size'],
+                'totVal': dutch_float(f['Waarde in EUR']),
+                'size': dutch_float(f['Aantal']),
             })
 
         return converted
+
+
+def dutch_float(f):
+    return float(f.replace(',', '.'))
