@@ -46,6 +46,8 @@ class Portfolio:
             for row in reader:
                 if row['Product'] == 'CASH & CASH FUND (EUR)':
                     self.cash = row['Waarde in EUR']
+                elif row['Product'] == 'CASH & CASH FUND (USD)':
+                    pass
                 else:
                     self.funds.append(row)
 
