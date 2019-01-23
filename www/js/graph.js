@@ -20,8 +20,8 @@ function get_fund_names(fundPrices) {
     });
 }
 
-var funds = $.getJSON('graph.php?d=1');
-var money = $.getJSON('graph.php?m=1');
+var funds = $.getJSON('../data/portfolio_history.json');
+var money = $.getJSON('../data/money_history.json');
 
 $.when(funds, money).done(function (fundsResult, moneyResult) {
     data = fundsResult[0];
