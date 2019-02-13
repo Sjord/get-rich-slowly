@@ -31,7 +31,7 @@ class Session:
     def get_account_id(self):
         response = requests.get(settings.client_url + '?sessionId=%s' % self.jsessionid)
         result = response.json()
-        return result['intAccount']
+        return result['data']['intAccount']
 
     def get_portfolio(self):
         response = requests.get(settings.portfolio_csv_url + '?intAccount=%s&sessionId=%s&country=NL&lang=nl' % (self.accountid, self.jsessionid))
